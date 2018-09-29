@@ -23,7 +23,11 @@ function film_custom_post_type (){
 		'singular_name' => 'Film',
 		'add_new' => 'Add Film',
 		'all_items' => 'All Films',
+<<<<<<< HEAD
 		'add_new_item' => 'Add new Film',
+=======
+		'add_new_item' => 'Add Film',
+>>>>>>> 7548616511eae85dfab5655f97d22966f48f2763
 		'edit_item' => 'Edit Film',
 		'new_item' => 'New Film',
 		'view_item' => 'View Film',
@@ -54,6 +58,7 @@ function film_custom_post_type (){
 		'exclude_from_search' => false
 	);
 	register_post_type('film',$args);
+<<<<<<< HEAD
 }
 add_action('init','film_custom_post_type');
 
@@ -136,4 +141,9 @@ function register_shortcodes() {
     add_shortcode( 'getfilms', 'getfilms_shortcode' );
 }
 add_action( 'init', 'register_shortcodes' );
+
+}
+add_action('init','film_custom_post_type');
+
+
 ?>
