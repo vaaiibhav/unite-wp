@@ -118,7 +118,8 @@ function getfilms_shortcode( $atts ) {
         $args = array(
         //'name' => $slug,
         'post_type' => 'film',
-        'numberposts' => 5
+        'numberposts' => 5  
+        // echo
         );
         
         $post = get_posts( $args );
