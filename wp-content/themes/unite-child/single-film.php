@@ -31,7 +31,19 @@
 					<?php the_content(); ?>
 					
 					<hr>
-					<small>
+                    <small>Country: <?php $terms = wp_get_post_terms( $post->ID, 'Country' );
+                    foreach($terms as $term){
+                        echo $term->name;
+                    } ?> <br> Genre: <?php $terms = wp_get_post_terms( $post->ID, 'Genre' );
+                    foreach($terms as $term){
+                        echo $term->name;
+                    } ?> <br> Release Date: 
+                    <?php echo get_post_meta($post->ID, 'Release Date', true); ?>
+                    <br> Ticket Price: 
+                    <?php echo get_post_meta($post->ID, 'Ticket Price', true); ?>
+
+
+					
 					<div class="row">
 						<div class="col-xs-6 text-left"><?php previous_post_link(); ?></div>
 						<div class="col-xs-6 text-right"><?php next_post_link(); ?></div>
