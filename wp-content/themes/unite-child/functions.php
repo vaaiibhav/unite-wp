@@ -46,7 +46,8 @@ function film_custom_post_type (){
 			'editor',
 			'excerpt',
 			'thumbnail',
-			'revisions',
+            'revisions',
+            'custom-fields',
 		),
 		//'taxonomies' => array('category', 'post_tag'),
 		'menu_position' => 5,
@@ -66,28 +67,28 @@ function film_custom_taxonomies() {
 	register_taxonomy('Genre', 'film', array(
 		'label' => 'Genre',
 		'rewrite' => array( 'slug' => 'genre' ),
-		'hierarchical' => false
+		'hierarchical' => true
     ) );
     //add Country taxonomy 
 	
 	register_taxonomy('Country', 'film', array(
 		'label' => 'Country',
 		'rewrite' => array( 'slug' => 'country' ),
-		'hierarchical' => false
+		'hierarchical' => true
     ) );
       //add Country taxonomy 
 	
 	register_taxonomy('Year', 'film', array(
 		'label' => 'Year',
 		'rewrite' => array( 'slug' => 'year' ),
-		'hierarchical' => false
+		'hierarchical' => true
 	) );
 	  //add Country taxonomy 
 	
       register_taxonomy('Actors', 'film', array(
 		'label' => 'Actors',
 		'rewrite' => array( 'slug' => 'actors' ),
-		'hierarchical' => false
+		'hierarchical' => true
 	) );
 }
 add_action( 'init' , 'film_custom_taxonomies' );
