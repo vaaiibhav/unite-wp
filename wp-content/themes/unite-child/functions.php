@@ -1,7 +1,7 @@
 <?php
 function my_theme_enqueue_styles() {
 
-    $parent_style = 'parent-style'; // This is 'Unite-style' for the Unite theme.
+    $parent_style = 'unite-style'; // This is 'Unite-style' for the Unite child theme.
 
     wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style',
@@ -11,25 +11,25 @@ function my_theme_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-
 /*
 	==========================================
 	 Custom Post Type
 	==========================================
 */
-function film_custom_post_type (){
+function awesome_custom_post_type (){
 	
 	$labels = array(
-		'name' => 'Films',
-		'singular_name' => 'Films',
-		'add_new' => 'Add FIlm',
-		'all_items' => 'All Films',
-		'edit_item' => 'Edit Film',
-		'new_item' => 'New Film',
-		'view_item' => 'View Film',
-		'search_item' => 'Search Film',
-		'not_found' => 'No Films found',
-		'not_found_in_trash' => 'No Films found in trash',
+		'name' => 'Portfolio',
+		'singular_name' => 'Portfolio',
+		'add_new' => 'Add Item',
+		'all_items' => 'All Items',
+		'add_new_item' => 'Add Item',
+		'edit_item' => 'Edit Item',
+		'new_item' => 'New Item',
+		'view_item' => 'View Item',
+		'search_item' => 'Search Portfolio',
+		'not_found' => 'No items found',
+		'not_found_in_trash' => 'No items found in trash',
 		'parent_item_colon' => 'Parent Item'
 	);
 	$args = array(
@@ -52,52 +52,7 @@ function film_custom_post_type (){
 		'menu_position' => 5,
 		'exclude_from_search' => false
 	);
-	register_post_type('Films',$args);
+	register_post_type('portfolio',$args);
 }
-add_action('init','film_custom_post_type');
-function film_custom_taxonomies() {
-	
-
-	//add Actors taxonomy NOT hierarchical
-	
-	register_taxonomy('Actors', 'film', array(
-		'label' => 'Actors',
-		'rewrite' => array( 'slug' => 'actor' ),
-		'hierarchical' => false
-    ) );
-    	//add Actors taxonomy NOT hierarchical
-
-    register_taxonomy('Actors', 'film', array(
-		'label' => 'Actors',
-		'rewrite' => array( 'slug' => 'actor' ),
-		'hierarchical' => false
-    ) );
-    register_taxonomy('Actors', 'film', array(
-		'label' => 'Actors',
-		'rewrite' => array( 'slug' => 'actor' ),
-		'hierarchical' => false
-	) );
-	
-}
-add_action( 'init' , 'film_custom_taxonomies' );
-/*
-	==========================================
-	Custom Term Function
-	==========================================
-*/
-function awesome_get_terms( $postID, $term ){
-	
-	$terms_list = wp_get_post_terms($postID, $term); 
-	$output = '';
-					
-	$i = 0;
-	foreach( $terms_list as $term ){ $i++;
-		if( $i > 1 ){ $output .= ', '; }
-		$output .= '<a href="' . get_term_link( $term ) . '">'. $term->name .'</a>';
-	}
-	
-	return $output;
-	
-}
-
+add_action('init','awesome_custom_post_type');
 ?>
