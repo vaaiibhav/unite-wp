@@ -65,28 +65,40 @@ function film_custom_taxonomies() {
 	//add GEnre taxonomy 
 	
 	register_taxonomy('Genre', 'film', array(
-		'label' => 'Genre',
+        'label' => 'Genre',
+        'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
 		'rewrite' => array( 'slug' => 'genre' ),
 		'hierarchical' => true
     ) );
     //add Country taxonomy 
 	
 	register_taxonomy('Country', 'film', array(
-		'label' => 'Country',
+        'label' => 'Country',
+        'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
 		'rewrite' => array( 'slug' => 'country' ),
 		'hierarchical' => true
     ) );
       //add Country taxonomy 
 	
 	register_taxonomy('Year', 'film', array(
-		'label' => 'Year',
+        'label' => 'Year',
+        'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
 		'rewrite' => array( 'slug' => 'year' ),
 		'hierarchical' => true
 	) );
 	  //add Country taxonomy 
 	
       register_taxonomy('Actors', 'film', array(
-		'label' => 'Actors',
+        'label' => 'Actors',
+        'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
 		'rewrite' => array( 'slug' => 'actors' ),
 		'hierarchical' => true
 	) );
