@@ -22,7 +22,10 @@ get_header(); ?>
 	endif;
 		
 	wp_reset_postdata();
-		
+	function get_the_ID() {
+		$post = get_post();
+		return ! empty( $post ) ? $post->ID : false;
+	}
 	?>
 
 <?php get_footer(); ?>
