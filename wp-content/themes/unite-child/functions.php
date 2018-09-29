@@ -105,5 +105,34 @@ function film_custom_taxonomies() {
 }
 add_action( 'init' , 'film_custom_taxonomies' );
 
+// Add Shortcode
+// Add Shortcode
+// Add Shortcode
+function getfilms_shortcode( $atts ) {
+    extract( shortcode_atts( array(
 
+        'slug' => null,
+        
+        ), $atts ) );
+        
+        $args = array(
+        //'name' => $slug,
+        'post_type' => 'film',
+        'numberposts' => 5
+        );
+        
+        $post = get_posts( $args );
+        foreach($post as $po){
+        echo $po->post_title;?>
+        <br><?php
+//        echo $title;
+        }
+       // return $title;
+}
+
+
+function register_shortcodes() {
+    add_shortcode( 'getfilms', 'getfilms_shortcode' );
+}
+add_action( 'init', 'register_shortcodes' );
 ?>
